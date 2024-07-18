@@ -4,4 +4,8 @@
  * @module interfaces
  */
 
+export { IAuthor } from './authorInterface';
+
+export { IBook } from './bookInterface';
+
 export { IDatabaseConfig } from './dbInterface';
