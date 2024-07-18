@@ -1,14 +1,18 @@
-import express from 'express';
+/**
+ * @fileoverview Server setup and configuration.
+ * @version 1.0.0
+ * @module server
+ */
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+import dotenv from 'dotenv';
+import app from './app';
+import { startServer } from './utils';
 
-const app = express();
+const result = dotenv.config();
 
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
+if (result.error) {
+  console.error('Failed to load environment variables:', result.error);
+  process.exit(1);
+}
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+startServer(app);
