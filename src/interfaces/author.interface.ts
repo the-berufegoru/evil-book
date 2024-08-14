@@ -11,4 +11,6 @@ export interface IAuthor {
   birthDate?: Date;
   nationality?: string;
   bio?: string;
+  updatedAt: Date;
+  createdAt: Date;
 }
